@@ -96,36 +96,39 @@ begin
         	SR_OUT_L <= B(3);
         when "1100" =>
         	My_A_VAR(3 downto 0) <= A;
-            My_B_VAR(3 downto 0) <= B;
-            My_S_VAR <= My_A_VAR + My_B_VAR ;
-            My_S_VAR <= My_A_VAR + ('0000000' & SR_IN_R) ;
-            S <= My_S_VAR ;
-            SR_OUT_L <= '0';
-            SR_OUT_R <= '0';
+		My_B_VAR(3 downto 0) <= B;
+            	My_S_VAR <= My_A_VAR + My_B_VAR ;
+           	My_S_VAR <= My_A_VAR + ('0000000' & SR_IN_R) ;
+            	S <= My_S_VAR ;
+            	SR_OUT_L <= '0';
+            	SR_OUT_R <= '0';
         when "1101" =>
         	My_A_VAR(3 downto 0) <= A;
-            My_B_VAR(3 downto 0) <= B;
-            My_A_VAR(7 downto 4) <= (others => A(3));
-            My_B_VAR(7 downto 4) <= (others => B(3));
-            My_S_VAR <= My_A_VAR + My_B_VAR ;
-            S <= My_S_VAR ;
-            SR_OUT_L <= '0';
-            SR_OUT_R <= '0';
+           	My_B_VAR(3 downto 0) <= B;
+            	My_A_VAR(7 downto 4) <= (others => A(3));
+            	My_B_VAR(7 downto 4) <= (others => B(3));
+            	My_S_VAR <= My_A_VAR + My_B_VAR ;
+            	S <= My_S_VAR ;
+            	SR_OUT_L <= '0';
+            	SR_OUT_R <= '0';
         when "1110" =>
         	My_A_VAR(3 downto 0) <= A;
-            My_B_VAR(3 downto 0) <= B;
-            My_A_VAR(7 downto 4) <= (others => A(3));
-            My_B_VAR(7 downto 4) <= (others => B(3));
-            My_S_VAR <= My_A_VAR - My_B_VAR ;
-            S <= My_S_VAR ;
-            SR_OUT_L <= '0';
-            SR_OUT_R <= '0';
+            	My_B_VAR(3 downto 0) <= B;
+            	My_A_VAR(7 downto 4) <= (others => A(3));
+            	My_B_VAR(7 downto 4) <= (others => B(3));
+            	My_S_VAR <= My_A_VAR - My_B_VAR ;
+            	S <= My_S_VAR ;
+            	SR_OUT_L <= '0';
+            	SR_OUT_R <= '0';
         when "1111" =>
         	S = A * B;
-            SR_OUT_L <= '0';
-            SR_OUT_R <= '0';
+            	SR_OUT_L <= '0';
+            	SR_OUT_R <= '0';
+                
+                
+       end case;
+       
+end process;
             
             
-            
-            
-end multNbits_DataFlow;
+     
