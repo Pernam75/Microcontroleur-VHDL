@@ -27,9 +27,9 @@ architecture UAL_DataFlow of UAL is
 begin
 	
     -- process explicite - intstructions séquentielle
-    UALProc : process (sel_FCT, A, B)
+    UALProc : process (sel_FCT, A, B, S, SR_IN_L, SR_IN_R, SR_OUT_L, SR_OUT_R)
     begin
-      case Sel_FCT is
+      case sel_FCT is
       when "0000" =>
       	S (7 downto 0) <= (others => '0');
         SR_OUT_L <= '0';
@@ -115,6 +115,7 @@ begin
         S <= My_S(3 downto 0);
         S(5) <= My_s1(4);
         My_S <= My_A * My_B;
+      when others => report "c'est cassé";
     end case;
     end process;
     
