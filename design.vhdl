@@ -90,16 +90,16 @@ begin
         S (7 downto 4) <= (others => '0');
         SR_OUT_L <= B(3);
       when '1100' =>
-      	My_A <= '0' & A;
-    	My_B <= '0' & B;
-	    My_SR_IN_R(N downto 1) <= (others => '0');
-    	My_SR_IN_R(0) <= SR_IN_R;
-        S <= My_S(3 downto 0);
-        S(5) <= My_s1(4);
-        My_S <= My_A + My_B + My_SR_In_R;
+          My_A(3 downto 0) <= A;
+          My_B(3 downto 0) <= B;
+          My_S <= My_A + My_B;
+          My_S <= My_A + ('0000000' & SR_IN_R) ;
+          S <= My_S ;
+          SR_OUT_L <= '0';
+          SR_OUT_R <= '0';
       when '1101' =>
       	My_A <= '0' & A;
-    	My_B <= '0' & B;
+    	  My_B <= '0' & B;
         S <= My_S(3 downto 0);
         S(5) <= My_s1(4);
         My_S <= My_A + My_B;
