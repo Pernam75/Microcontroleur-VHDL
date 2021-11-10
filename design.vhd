@@ -20,7 +20,7 @@ component TP_UAL_Coeur
   	SR_OUT_L : in STD_LOGIC;
   	S : in STD_LOGIC_VECTOR (7 downto 0);
   	SEL_FCT : in STD_LOGIC_VECTOR(3 downto 0));
-end TP_UAL_Coeur ;
+end component ;
 
 architecture TP_Arch_Coeur of TP_UAL_Coeur is
     signal My_A, My_B : std_logic_vector (3 downto 0);
