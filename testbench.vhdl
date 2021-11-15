@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use IEE.std_logic_unsigned.all;
+use IEEE.std_logic_signed.all;
 
 entity myUALtestbench is 
 
@@ -14,12 +14,12 @@ architecture myUALtestbench_Arch of myUALtestbench is
     port (
         A : in std_logic_vector (3 downto 0);
         B : in std_logic_vector (3 downto 0);
-        sel_FCT : in std_logic (3 downto 3);
+        sel_FCT : in std_logic (3 downto 0);
         S : out std_logic_vector (7 downto 0);
         SR_IN_L : out std_logic;
         SR_IN_R : out std_logic;
         SR_OUT_L : out std_logic;
-        SR_OUT_R : out std_logic
+        SR_OUT_R : out std_logic);
     end component;
     -- Déclaration des signaux internes à l'architecture pour résilier les simulations 
     signal A_sim, B_sim : std_logic_vector(3 downto 0) :=  (others => '0');
@@ -46,7 +46,7 @@ begin
             for j in 0 to 1 loop
                 for k in 0 to 1 loop
                     for l in 0 to 1 loop
-                        sel_FCT_sim <= (i,j,k,l)
+                        sel_FCT_sim <= (i,j,k,l);
                     end loop;
                 end loop;
             end loop;
@@ -55,4 +55,4 @@ begin
         wait;
     end process;
 
-end myUALtestbench_Arch
+end myUALtestbench_Arch;
