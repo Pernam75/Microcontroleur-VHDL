@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.std_logic_signed.all;
 use IEEE.std_logic_unsigned.all;
 entity myUALtestbench is 
 
@@ -43,6 +44,8 @@ begin
     begin
         for i in 0 to 15 loop
         	sel_FCT_sim <= std_logic_vector(to_unsigned(i,4));
+            wait for 100 us;
+            report std_logic'image(sel_FCT_sim(3))&std_logic'image(sel_FCT_sim(2))&std_logic'image(sel_FCT_sim(1))&std_logic'image(sel_FCT_sim(0));
         end loop;
         report "Test ok (no assert...)";
         wait;
