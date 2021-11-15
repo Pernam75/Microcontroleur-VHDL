@@ -14,7 +14,7 @@ architecture myUALtestbench_Arch of myUALtestbench is
     port (
         A : in std_logic_vector (3 downto 0);
         B : in std_logic_vector (3 downto 0);
-        sel_FCT : in std_logic;
+        sel_FCT : in std_logic (3 downto 3);
         S : out std_logic_vector (7 downto 0);
         SR_IN_L : out std_logic;
         SR_IN_R : out std_logic;
