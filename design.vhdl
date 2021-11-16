@@ -21,7 +21,10 @@ architecture UAL_DataFlow of UAL is
 	
     signal My_A : std_logic_vector (3 downto 0);
     signal My_B : std_logic_vector (3 downto 0);
-    signal My_SR_IN_R : std_logic_vector (3 downto 0);
+    signal My_SR_IN_L : std_logic;
+    signal My_SR_IN_R : std_logic;
+    signal My_SR_OUT_L : std_logic;
+    signal My_SR_OUT_R : std_logic;
     signal My_S : std_logic_vector (7 downto 0);
     signal My_sel_FCT : std_logic_vector (3 downto 0);
 
