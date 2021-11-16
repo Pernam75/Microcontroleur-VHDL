@@ -17,18 +17,17 @@ port (
 end TP_Coeur;
 
 architecture TP_Arch_Coeur of TP_UAL_Coeur is
-    signal My_A, My_B, My_SEL_FCT : std_logic_vector (3 downto 0);
-    signal My_SR_IN_L, My_SR_IN_R, My_SR_OUT_R, My_SR_OUT_L : std_logic;
-    signal My_S : std_logic_vector (7 downto 0);
+    signal My_A, My_B : std_logic_vector (7 downto 0); 
+    signal My_SEL_FCT : std_logic_vector (3 downto 0);
+    signal My_SR_OUT_R, My_SR_OUT_L : std_logic;
+    signal My_S, My_SR_IN_L, My_SR_IN_R : std_logic_vector (7 downto 0);
     
 
     
     
 begin
 
-	UAL_Process : process (A, B, SR_IN_L, SR_IN_R, SEL_FCT)
-    variable My_A_VAR, My_B_VAR, My_S_VAR: std_logic_vector (7 downto 0);
-    
+	UAL_Process : process (SEL_FCT)
     
     begin
       case SEL_FCT is
@@ -93,11 +92,9 @@ begin
               My_SR_OUT_L <= B(3);
               My_SR_OUT_R <= '0';
           when "1100" =>
-              My_A_VAR(3 downto 0) <= My_A;
-          	  My_B_VAR(3 downto 0) <= My_B;
-              My_S_VAR <= My_A_VAR + My_B_VAR ;
-              My_S_VAR <= My_A_VAR + ("0000000" & SR_IN_R) ;
-              My_S <= My_S_VAR ;
+          	  My_S <= My_A + My_B + My_SR_In_R;
+        	  My_SR_OUT_L <= '0';
+       		  My_SR_OUT_R <= '0';
               My_SR_OUT_L <= '0';
               My_SR_OUT_R <= '0';
           when "1101" =>
@@ -125,13 +122,20 @@ begin
          end case;
        
 end process;
-My_A <= A;
-My_B <= B;
-My_SR_IN_L <= SR_IN_L;
-My_SR_IN_R <= SR_IN_R;
+	My_A (3 downto 0) <= A;
+    My_A (7 downto 4) <= (others => '0');
+    My_B (3 downto 0) <= B;
+    My_B (7 downto 4) <= (others => '0');
+    My_SR_In_R(0) <= SR_In_R;
+    My_SR_In_R (7 downto 1) <= (others => '0');
+    My_SR_In_L(0) <= SR_In_R;
+    My_SR_In_L (7 downto 1) <= (others => '0');
     
-S <= My_S;
-SR_OUT_L <= My_SR_OUT_L;
-SR_OUT_R <= My_SR_OUT_R;
+    S <= My_S;
+    SR_OUT_L <= My_SR_OUT_L;
+    SR_OUT_R <= My_SR_OUT_R;
 
 end;
+            
+            
+     
