@@ -8,9 +8,9 @@ use IEEE.std_logic_unsigned.all;
 
 Entity Buffers is
 port (
-	clk : in std_logic;
+    clk : in std_logic;
     reset : in std_logic;
-	Mem1_in : in std_logic_vector(7 downto 0);
+    Mem1_in : in std_logic_vector(7 downto 0);
     Mem1_out : out std_logic_vector(7 downto 0);
     MEM1_val : in std_logic;
     
@@ -33,8 +33,8 @@ port (
     BuffB_in : in std_logic_vector(3 downto 0);
     BuffB_out : in std_logic_vector(3 downto 0);
     BuffB_val : std_logic;
-  	)
-    end Buffers;
+     )
+end Entity;
 architecture Buffers_arch of Buffers is
 begin
 	BuffA_process : process (reset,clk,BuffA_val)
