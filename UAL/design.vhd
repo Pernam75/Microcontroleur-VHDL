@@ -196,7 +196,7 @@ begin
 
               My_A_VAR(3 downto 0) := My_A;
 
-                 My_B_VAR(3 downto 0) := My_B;
+              My_B_VAR(3 downto 0) := My_B;
 
               My_S_VAR := My_A_VAR + My_B_VAR ;
 
