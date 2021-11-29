@@ -9,7 +9,7 @@ entity UAL_SELROUTE is
             buff_A_out, buff_B_out : in STD_LOGIC_VECTOR (3 downto 0);
             mem_1_out, mem_2_out : in STD_LOGIC_VECTOR (7 downto 0);
             buff_A_in, buff_B_in : out STD_LOGIC_VECTOR (3 downto 0);
-            mem_1_In, mem_2_In : out STD_LOGIC_VECTOR (7 downto 0);
+            mem_1_in, mem_2_in : out STD_LOGIC_VECTOR (7 downto 0);
             BuffA_val, BuffB_val : out STD_LOGIC;
             Mem1_val, Mem2_val  : out STD_LOGIC;           
     );
