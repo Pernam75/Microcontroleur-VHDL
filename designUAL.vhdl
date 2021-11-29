@@ -34,7 +34,7 @@ begin
     -- process explicite - intstructions séquentielle
     UALProc : process (A, B, SR_IN_L, SR_IN_R, sel_FCT)
 
-    variable My_A_var, My_B_var, My_S_var: std_logic_vector (7 downto 0);
+    variable My_A_var, My_B_var, My_S_var, My_SR_IN_R_VAR: std_logic_vector (7 downto 0);
     begin
       case sel_FCT is
       when "0000" =>
@@ -103,53 +103,43 @@ begin
       when "1100" =>
         My_A_VAR(3 downto 0) := My_A;
         My_B_VAR(3 downto 0) := My_B;
-        My_A_VAR(7 downto 4) := (others => A(3));
-        My_B_VAR(7 downto 4) := (others => B(3));
-        My_S_VAR := My_A_VAR + My_B_VAR;
-        My_S_VAR := My_S_VAR + ("0000000" & SR_IN_R);
-        My_S <= My_S_VAR;
+        My_A_VAR(7 downto 4) := (others => '0');
+        My_B_VAR(7 downto 4) := (others => '0');
+        My_SR_IN_R_VAR(0) := SR_IN_R;
+        My_SR_IN_R_VAR(7 downto 1) := (others => '0');
+        My_S <= My_A_VAR + My_B_VAR + My_SR_IN_R_VAR;
         My_SR_OUT_L <= '0';
         My_SR_OUT_R <= '0';
       when "1101" =>
-      	My_A_VAR(3 downto 0) := My_A;
+        My_A_VAR(3 downto 0) := My_A;
         My_B_VAR(3 downto 0) := My_B;
-        My_A_VAR(7 downto 4) := (others => A(3));
-        My_B_VAR(7 downto 4) := (others => B(3));
-        My_S_VAR := My_A_VAR + My_B_VAR;
-        My_S <= My_S_VAR;
+        My_A_VAR(7 downto 4) := (others => '0');
+        My_B_VAR(7 downto 4) := (others => '0');
+        My_S <= My_A_VAR + My_B_VAR;
         My_SR_OUT_L <= '0';
         My_SR_OUT_R <= '0';
       when "1110" =>
-      	My_A_VAR(3 downto 0) := My_A;
+        My_A_VAR(3 downto 0) := My_A;
         My_B_VAR(3 downto 0) := My_B;
-        My_A_VAR(7 downto 4) := (others => A(3));
-        My_B_VAR(7 downto 4) := (others => B(3));
+        My_A_VAR(7 downto 4) := (others => '0');
+        My_B_VAR(7 downto 4) := (others => '0');
         My_S <= My_A_VAR - My_B_VAR;
-        My_S <= My_S_VAR;
         My_SR_OUT_L <= '0';
         My_SR_OUT_R <= '0';
       when "1111" =>
-      	My_A_VAR(3 downto 0) := My_A;
-        My_B_VAR(3 downto 0) := My_B;
-        My_A_VAR(7 downto 4) := (others => A(3));
-        My_B_VAR(7 downto 4) := (others => B(3));
-        My_S <= My_A_VAR * My_B_VAR;
+        My_S <= My_A * My_B;
         My_S <= My_S_VAR;
         My_SR_OUT_L <= '0';
         My_SR_OUT_R <= '0';
       when others => report "c'est cassé";
     end case;
     end process;
-    My_A (3 downto 0) <= A;
-    My_A (7 downto 4) <= (others => '0');
-    My_B (3 downto 0) <= B;
-    My_B (7 downto 4) <= (others => '0');
-    My_SR_In_R(0) <= SR_In_R;
-    My_SR_In_R (7 downto 1) <= (others => '0');
-    My_SR_In_L(0) <= SR_In_R;
-    My_SR_In_L (7 downto 1) <= (others => '0');
     
-    S <= My_S;
+    My_A <= A;
+    My_B <= B;
+    My_SR_IN_L <= SR_IN_L;
+    My_SR_IN_R <= SR_IN_R;
+	S <= My_S;
     SR_OUT_L <= My_SR_OUT_L;
     SR_OUT_R <= My_SR_OUT_R;
     
