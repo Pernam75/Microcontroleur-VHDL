@@ -8,6 +8,7 @@ Entity Buffers is
 port (
 	clk : in std_logic;
     reset : in std_logic;
+    
 	Mem1_in : in std_logic_vector(7 downto 0);
     Mem1_out : out std_logic_vector(7 downto 0);
     MEM1_val : in std_logic;
@@ -32,7 +33,15 @@ port (
     BuffB_out : out std_logic_vector(3 downto 0);
     BuffB_val : in std_logic);
     
+    Buff_SEL_FCT_in : in STD_LOGIC_VECTOR (3 downto 0);
+    Buff_SEL_FCT_out : out STD_LOGIC_VECTOR (3 downto 0);
+    
+    Buff_SEL_OUT_in : in STD_LOGIC_VECTOR (1 downto 0);
+    Buff_SEL_OUT_out : out STD_LOGIC_VECTOR (1 downto 0)
+    
     end Buffers;
+    
+    
 architecture Buffers_arch of Buffers is
 begin
 	BuffA_process : process (reset,clk,BuffA_val)
@@ -89,5 +98,24 @@ begin
         	SR_R_out <= SR_R_in;
     	end if;
     end process;
+    
+    Buf_SEL_FCT_Proc : process (reset, clk)
+    begin
+        if reset = '1' then
+            Buf_SEL_FCT_out <= (others => '0'); 
+        elsif (rising_edge(clk)) then
+            Buf_SEL_FCT_out <= Buf_SEL_FCT_in;
+        end if;
+    end process;
+    
+        Buf_SEL_OUT_Proc : process (reset, clk)
+    begin
+        if reset = '1' then
+            Buf_SEL_OUT_out <= (others => '0'); 
+        elsif (rising_edge(clk)) then
+            Buf_SEL_OUT_out <= Buf_SEL_OUT_In;
+        end if;
+    end process;
         
 end architecture;
+
