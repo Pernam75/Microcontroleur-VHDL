@@ -144,7 +144,7 @@ begin
     My_B <= B;
     My_SR_IN_L <= SR_IN_L;
     My_SR_IN_R <= SR_IN_R;
-	S <= My_S;
+	  S <= My_S;
     SR_OUT_L <= My_SR_OUT_L;
     SR_OUT_R <= My_SR_OUT_R;
     
