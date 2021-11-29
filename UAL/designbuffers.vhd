@@ -48,7 +48,7 @@ begin
     begin 
  		if (reset ='1') then
         	BuffA_out <= (other => '0');
-        elsif (rising_edge (clk) and BuffA_val ='0') then
+        elsif (rising_edge(clk) and BuffA_val ='0') then
         	BuffA_out <= BuffA_in;
     	end if;
     end process;
@@ -58,7 +58,7 @@ begin
     begin 
  		if reset ='1' then
         	BuffB_out <= (other => '0');
-        elsif (rising_edge (clk) and BuffB_val ='0') then
+        elsif (rising_edge(clk) and BuffB_val ='0') then
         	BuffB_out <= BuffB_in;
     	end if;
     end process;
