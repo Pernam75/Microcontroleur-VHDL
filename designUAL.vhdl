@@ -34,7 +34,8 @@ begin
     -- process explicite - intstructions séquentielle
     UALProc : process (A, B, SR_IN_L, SR_IN_R, sel_FCT)
 
-    variable My_A_var, My_B_var, My_S_var, My_SR_IN_R_VAR: std_logic_vector (7 downto 0);
+    variable My_A_var, My_B_var, My_SR_IN_R_VAR: std_logic_vector (7 downto 0);
+    variable My_S_VAR: std_logic_vector (15 downto 0);
     begin
       case sel_FCT is
       when "0000" =>
@@ -127,8 +128,12 @@ begin
         My_SR_OUT_L <= '0';
         My_SR_OUT_R <= '0';
       when "1111" =>
-        My_S <= My_A * My_B;
-        My_S <= My_S_VAR;
+      	My_A_VAR(3 downto 0) := My_A;
+        My_B_VAR(3 downto 0) := My_B;
+        My_A_VAR(7 downto 4) := (others => '0');
+        My_B_VAR(7 downto 4) := (others => '0');
+        My_S_VAR := My_A_VAR * My_B_VAR;
+        My_S(7 downto 0) <= My_S_VAR(7 downto 0);
         My_SR_OUT_L <= '0';
         My_SR_OUT_R <= '0';
       when others => report "c'est cassé";
