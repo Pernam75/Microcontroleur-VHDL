@@ -4,14 +4,14 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 -- Déclaration d'une entité pour la simulation sans ports d'entrées et de sorties
-entity mybufferNbitstestbench is 
+entity mybuffer_A_testbench is 
 
-end mybufferNbitstestbench;
+end mybuffer_A_testbench;
 
-architecture mybufferNbitstestbench_Arch of mybufferNbitstestbench is
+architecture mybuffer_A_testbench_Arch of mybuffer_A_testbench is
 
-	-- Declaration du composant à tester -> renvoie vers l'entité bufferNbits
-    component bufferNbits is 
+	-- Declaration du composant à tester -> renvoie vers l'entité buffer_A
+    component buffer_A is 
     generic (N : integer);
     port (
     	e1 : in std_logic_vector (N-1 downto 0);
@@ -36,7 +36,7 @@ architecture mybufferNbitstestbench_Arch of mybufferNbitstestbench is
 begin
 	
     -- Instanciation du composant à tester
-    MyComponentsynthcomb01underTest : bufferNbits
+    MyComponentsynthcomb01underTest : buffer_A
     -- raccordement des ports du composant aux signaux dans l'architecture 
     generic map ( N => N )
     port map (
@@ -92,4 +92,4 @@ begin
         report "Test ok (no assert...)";
         wait;
     end process;
-end mybufferNbitstestbench_Arch;
+end mybuffer_A_testbench_Arch;

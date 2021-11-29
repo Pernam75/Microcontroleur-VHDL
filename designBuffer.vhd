@@ -2,35 +2,35 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity bufferNbits is 
+entity buffer_A is 
 generic (
-	N : integer := 4
+    N : integer := 4
 );
 port (
-	e1 : in std_logic_vector (N-1 downto 0);
+    e1 : in std_logic_vector (N-1 downto 0);
     reset : in std_logic;
     preset : in std_logic;
     clock : in std_logic;
     s1 : out std_logic_vector (N-1 downto 0)
 );
-end bufferNbits;
+end buffer_A;
 
-architecture bufferNbits_Arch of bufferNbits is
+architecture buffer_A_Arch of buffer_A is
 
 begin
-	
+    
     -- process explicite - instructions séquentielles
-    MyBufferNbitsProc : process (reset, clock)
+    MyBuffer_AProc : process (reset, clock)
     begin
-    	if (reset = '1') then
-        	s1 <= (others => '0');
+        if (reset = '1') then
+            s1 <= (others => '0');
         elsif (rising_edge(clock)) then
-        	if (preset = '1') then
-            	s1 <= (others => '1');
+            if (preset = '1') then
+                s1 <= (others => '1');
             else
-            	s1 <= e1;
+                s1 <= e1;
             end if;
         end if;
      end process;
 
-end bufferNbits_Arch;
+end buffer_A_Arch;
