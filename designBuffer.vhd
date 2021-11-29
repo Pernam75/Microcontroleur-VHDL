@@ -28,7 +28,6 @@ architecture Buffers_DataFlow of BuffersUAL is
 
 begin
     
-    -- process explicite - instructions séquentielles
     MyBuffer_AProc : process (preset, reset, clock, CE_Buffer_A)
     begin
         if (reset = '1') then
