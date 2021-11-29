@@ -99,7 +99,7 @@ begin
     	end if;
     end process;
     
-    Buf_SEL_FCT_Proc : process (reset, clk)
+    Buf_SEL_FCT_process : process (reset, clk)
     begin
         if reset = '1' then
             Buf_SEL_FCT_out <= (others => '0'); 
@@ -108,7 +108,7 @@ begin
         end if;
     end process;
     
-        Buf_SEL_OUT_Proc : process (reset, clk)
+        Buf_SEL_OUT_process : process (reset, clk)
     begin
         if reset = '1' then
             Buf_SEL_OUT_out <= (others => '0'); 
@@ -118,4 +118,3 @@ begin
     end process;
         
 end architecture;
-
