@@ -16,4 +16,4 @@ begin
              E2 when "10",
              E3 when others;
              
-end FLOT_MUX;
+end MainMux_Arch;
