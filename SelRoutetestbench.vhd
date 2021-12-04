@@ -51,15 +51,6 @@ begin
     
     MyStimulus_Proc : process
     begin
-      CE_Buffer_A_sim <= '0';
-      CE_Buffer_B_sim <= '0';
-      CE_Buffer_Memory1_sim <= '0';
-      CE_Buffer_Memory2_sim <= '0';
-      S_sim <= (others => '0');
-      Buffer_Memory1_OUT_sim <= (others => '0');
-      Buffer_Memory2_OUT_sim <= (others => '0');
-      Buffer_Memory1_IN_sim <= (others => '0');
-      Buffer_Memory2_IN_sim <= (others => '0');
         for i in 0 to 15 loop
         	SEL_ROUTE_sim <= std_logic_vector(to_unsigned(i,4));
             wait for 100 us;
