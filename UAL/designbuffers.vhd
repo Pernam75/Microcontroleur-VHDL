@@ -31,7 +31,8 @@ port (
     
     BuffB_in : in std_logic_vector(3 downto 0);
     BuffB_out : out std_logic_vector(3 downto 0);
-    BuffB_val : in std_logic);
+    BuffB_val : in std_logic
+	;
     
     Buff_SEL_FCT_in : in STD_LOGIC_VECTOR (3 downto 0);
     Buff_SEL_FCT_out : out STD_LOGIC_VECTOR (3 downto 0);
