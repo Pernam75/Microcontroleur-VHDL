@@ -18,7 +18,8 @@ architecture myUALtestbench_Arch of myUALtestbench is
         SR_IN_L : in std_logic;
         SR_IN_R : in std_logic;
         SR_OUT_L : out std_logic;
-        SR_OUT_R : out std_logic);
+        SR_OUT_R : out std_logic
+    );
     end component;
     -- Déclaration des signaux internes à l'architecture pour résilier les simulations 
     signal A_sim, B_sim, sel_FCT_sim : std_logic_vector(3 downto 0) :=  (others => '0');
