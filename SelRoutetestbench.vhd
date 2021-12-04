@@ -51,11 +51,20 @@ begin
     
     MyStimulus_Proc : process
     begin
+    	A_sim <= "1001";
+        B_sim <= "1100";
+        Buffer_Memory1_IN_sim <= "00100101";
+        Buffer_Memory2_IN_sim <= "01100001";
+        S_sim <= "11000001";
         for i in 0 to 15 loop
         	SEL_ROUTE_sim <= std_logic_vector(to_unsigned(i,4));
             wait for 100 us;
             report std_logic'image(SEL_ROUTE_sim(3)) & std_logic'image(SEL_ROUTE_sim(2)) & std_logic'image(SEL_ROUTE_sim(1)) & std_logic'image(SEL_ROUTE_sim(0));
-            report "CE_Buffer_A : "&std_logic'image(CE_Buffer_A_sim)&" ; CE_Buffer_B : "&std_logic'image(CE_Buffer_B_sim) & " ; CE_Buffer_Memory1 : " & std_logic'image(CE_Buffer_Memory1_sim) & " ; CE_Buffer_Memory2 : " & std_logic'image(CE_Buffer_Memory2_sim);
+            report "CE_Buffer_A : " & std_logic'image(CE_Buffer_A_sim)&" ; CE_Buffer_B : " & std_logic'image(CE_Buffer_B_sim) & " ; CE_Buffer_Memory1 : " & std_logic'image(CE_Buffer_Memory1_sim) & " ; CE_Buffer_Memory2 : " & std_logic'image(CE_Buffer_Memory2_sim);
+            report "Buffer A OUT : " & std_logic'image(Buffer_A_OUT_sim(3)) & std_logic'image(Buffer_A_OUT_sim(2)) & std_logic'image(Buffer_A_OUT_sim(1)) & std_logic'image(Buffer_A_OUT_sim(0));
+            report "Buffer B OUT : " & std_logic'image(Buffer_B_OUT_sim(3))&std_logic'image(Buffer_B_OUT_sim(2))&std_logic'image(Buffer_B_OUT_sim(1))&std_logic'image(Buffer_B_OUT_sim(0));
+            report "Buffer Memory 1 : " & std_logic'image(Buffer_Memory1_OUT_sim(7)) & std_logic'image(Buffer_Memory1_OUT_sim(6)) & std_logic'image(Buffer_Memory1_OUT_sim(5)) & std_logic'image(Buffer_Memory1_OUT_sim(4)) & std_logic'image(Buffer_Memory1_OUT_sim(3)) & std_logic'image(Buffer_Memory1_OUT_sim(2)) & std_logic'image(Buffer_Memory1_OUT_sim(1)) & std_logic'image(Buffer_Memory1_OUT_sim(0));
+                        report "Buffer Memory 2 : " & std_logic'image(Buffer_Memory2_OUT_sim(7)) & std_logic'image(Buffer_Memory2_OUT_sim(6)) & std_logic'image(Buffer_Memory2_OUT_sim(5)) & std_logic'image(Buffer_Memory2_OUT_sim(4)) & std_logic'image(Buffer_Memory2_OUT_sim(3)) & std_logic'image(Buffer_Memory2_OUT_sim(2)) & std_logic'image(Buffer_Memory2_OUT_sim(1)) & std_logic'image(Buffer_Memory2_OUT_sim(0));
         end loop;
         report "Test ok (no assert...)";
         wait;
