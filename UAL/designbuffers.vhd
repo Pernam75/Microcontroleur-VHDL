@@ -9,9 +9,9 @@ port (
 	clk : in std_logic;
     reset : in std_logic;
     
-	Mem1_in : in std_logic_vector(7 downto 0);
+    Mem1_in : in std_logic_vector(7 downto 0);
     Mem1_out : out std_logic_vector(7 downto 0);
-    MEM1_val : in std_logic;
+    Mem1_val : in std_logic;
     
     Mem2_in : in std_logic_vector(7 downto 0);
     Mem2_out : out std_logic_vector(7 downto 0);
