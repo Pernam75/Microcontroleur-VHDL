@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity SelOUTUAL is
     Port(
         SEL_OUT : in STD_LOGIC_VECTOR (1 downto 0);
-        MEM_CACHE_1, MEM_CACHE_2 : in STD_LOGIC_VECTOR (7 downto 0);
+        MEM_CACHE_1, MEM_CACHE_2, S : in STD_LOGIC_VECTOR (7 downto 0);
         RES_OUT : out STD_LOGIC_VECTOR(7 downto 0)
         );
 end SelOUTUAL;
