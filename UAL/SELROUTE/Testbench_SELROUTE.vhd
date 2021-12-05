@@ -51,7 +51,7 @@ begin
     );
     
     
-    SELROUTE_Proc : process
+    MyStimulus_Proc : process
     begin
     	A_sim <= "1010";
         B_sim <= "1111";
