@@ -9,9 +9,9 @@ architecture Buffer of BufferTB_arch is
 component BufferTP is
 
 port (
-	clk : in std_logic;
+    clk : in std_logic;
     reset : in std_logic;
-	Mem1_in : in std_logic_vector(7 downto 0);
+    Mem1_in : in std_logic_vector(7 downto 0);
     Mem1_out : out std_logic_vector(7 downto 0);
     MEM1_val : in std_logic;
     
@@ -38,12 +38,12 @@ port (
     end component;
 begin
 
-	Buffersundertest : BufferTP
+    Buffersundertest : BufferTP
     
     port map(
     clk : iMy_clk;
     reset : My_reset;
-	Mem1_in : My_Mem1_in
+    Mem1_in : My_Mem1_in
     Mem1_out : My_Mem1_out 
     MEM1_val : My_MEM1_val
     
