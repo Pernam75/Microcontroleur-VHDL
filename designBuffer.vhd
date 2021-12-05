@@ -4,9 +4,6 @@ use IEEE.std_logic_1164.all;
 
 entity BuffersUAL is 
 port (
-
-
-
     clock : in std_logic;
     reset : in std_logic;
     preset : in std_logic;
@@ -33,8 +30,7 @@ port (
     
     Buffer_B_IN : in std_logic_vector(3 downto 0);
     Buffer_B_OUT : out std_logic_vector(3 downto 0);
-    CE_Buffer_B : in std_logic
-	;
+    CE_Buffer_B : in std_logic;
     
     Buffer_SEL_FCT_IN : in STD_LOGIC_VECTOR (3 downto 0);
     Buffer_SEL_FCT_OUT : out STD_LOGIC_VECTOR (3 downto 0);
