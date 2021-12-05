@@ -19,7 +19,6 @@ begin
         case SEL_OUT is
         
             when "00" =>
-            	
                 RES_OUT <= (others => '0');
                 
             when "01" =>
