@@ -18,11 +18,11 @@ port (
     
     Buffer_SR_IN_L_in : in std_logic;
     Buffer_SR_IN_L_OUT : out std_logic;
-    CE_SR_IN_L : in std_logic;
+    CE_Buffer_SR_IN_L : in std_logic;
     
     Buffer_SR_IN_R_in : in std_logic;
     Buffer_SR_IN_R_out : out std_logic;
-    CE_SR_IN_R : in std_logic;
+    CE_Buffer_SR_IN_R : in std_logic;
     
     Buffer_A_IN : in std_logic_vector(3 downto 0);
     Buffer_A_OUT : out std_logic_vector(3 downto 0);
@@ -37,6 +37,7 @@ port (
     
     Buffer_SEL_OUT_IN : in STD_LOGIC_VECTOR (1 downto 0);
     Buffer_SEL_OUT_OUT : out STD_LOGIC_VECTOR (1 downto 0)
+    );
 end BuffersUAL;
 
 architecture Buffers_DataFlow of BuffersUAL is
@@ -72,10 +73,10 @@ begin
       MyBuffer_SR_IN_LProc : process (preset, reset, clock, CE_Buffer_SR_IN_L)
       begin
           if (reset = '1') then
-              Buffer_SR_IN_L_out <= (others => '0');
+              Buffer_SR_IN_L_out <= '0';
           elsif (rising_edge(clock) and CE_Buffer_SR_IN_L = '1') then
               if (preset = '1') then
-                  Buffer_SR_IN_L_out <= (others => '1');
+                  Buffer_SR_IN_L_out <= '1';
               else
                   Buffer_SR_IN_L_out <= Buffer_SR_IN_L_in;
               end if;
@@ -85,10 +86,10 @@ begin
        MyBuffer_SR_IN_RProc : process (preset, reset, clock, CE_Buffer_SR_IN_R)
        begin
            if (reset = '1') then
-               Buffer_SR_IN_R_out <= (others => '0');
+               Buffer_SR_IN_R_out <= '0';
            elsif (rising_edge(clock) and CE_Buffer_SR_IN_R = '1') then
                if (preset = '1') then
-                   Buffer_SR_IN_R_out <= (others => '1');
+                   Buffer_SR_IN_R_out <= '1';
                else
                    Buffer_SR_IN_R_out <= Buffer_SR_IN_R_in;
                end if;
@@ -125,7 +126,7 @@ begin
           begin
               if (reset = '1') then
                   Buffer_SEL_FCT_OUT <= (others => '0');
-              elsif (rising_edge(clock) and CE_Buffer_SEL_FCT = '1') then
+              elsif (rising_edge(clock)) then
                   if (preset = '1') then
                       Buffer_SEL_FCT_OUT <= (others => '1');
                   else
@@ -138,7 +139,7 @@ begin
            begin
                if (reset = '1') then
                    Buffer_SEL_OUT_OUT <= (others => '0');
-               elsif (rising_edge(clock) and CE_Buffer_SEL_OUT = '1') then
+               elsif (rising_edge(clock)) then
                    if (preset = '1') then
                        Buffer_SEL_OUT_OUT <= (others => '1');
                    else
