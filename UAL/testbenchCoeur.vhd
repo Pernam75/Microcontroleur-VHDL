@@ -24,7 +24,7 @@ architecture CoeurTB_Arch of CoeurTB is
 
  
 
-    component TB_Coeur is
+    component TP_Coeur is
 
       port(
 
@@ -58,7 +58,7 @@ architecture CoeurTB_Arch of CoeurTB is
 
 begin
 
-    Coeurundertest : TB_Coeur
+    Coeurundertest : TP_Coeur
 
  
 
