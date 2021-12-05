@@ -84,7 +84,7 @@ begin
 
  
 
-     MyStimulus_Proc2 : process
+     MyStimulus_Proc : process
 
      begin
 
