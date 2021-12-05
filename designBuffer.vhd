@@ -4,24 +4,43 @@ use IEEE.std_logic_1164.all;
 
 entity BuffersUAL is 
 port (
+
+
+
+    clock : in std_logic;
     reset : in std_logic;
     preset : in std_logic;
-    clock : in std_logic;
-    Buffer_A_IN, Buffer_A_OUT: in std_logic_vector (3 downto 0);
-    CE_Buffer_A : in STD_LOGIC;
-    Buffer_B_IN, Buffer_B_OUT: in std_logic_vector (3 downto 0);
-    CE_Buffer_B : in STD_LOGIC;
-    Buffer_SR_IN_L_in, Buffer_SR_IN_L_out, CE_SR_IN_L : in STD_LOGIC;
-    Buffer_SR_IN_R_in, Buffer_SR_IN_R_out, CE_SR_IN_R : in STD_LOGIC;
-    Buffer_Memory1_IN, Buffer_Memory1_OUT : in std_logic_vector (7 downto 0);
-    CE_Buffer_Memory1 : in STD_LOGIC;
-    Buffer_Memory2_IN, Buffer_Memory2_OUT : in std_logic_vector (7 downto 0);
-    CE_Buffer_Memory2 : in STD_LOGIC;
-    Buffer_SEL_FCT_IN, Buffer_SEL_FCT_OUT: in std_logic_vector (3 downto 0);
-    CE_Buffer_SEL_FCT : in STD_LOGIC;
-    Buffer_SEL_OUT_IN, Buffer_SEL_OUT_OUT: in std_logic_vector (3 downto 0);
-    CE_Buffer_SEL_OUT : in STD_LOGIC
-);
+    
+    Buffer_Memory1_IN : in std_logic_vector(7 downto 0);
+    Buffer_Memory1_OUT : out std_logic_vector(7 downto 0);
+    CE_Buffer_Memory1 : in std_logic;
+    
+    Buffer_Memory2_IN : in std_logic_vector(7 downto 0);
+    Buffer_Memory2_OUT : out std_logic_vector(7 downto 0);
+    CE_Buffer_Memory2 : in std_logic;
+    
+    Buffer_SR_IN_L_in : in std_logic;
+    Buffer_SR_IN_L_OUT : out std_logic;
+    CE_SR_IN_L : in std_logic;
+    
+    Buffer_SR_IN_R_in : in std_logic;
+    Buffer_SR_IN_R_out : out std_logic;
+    CE_SR_IN_R : in std_logic;
+    
+    Buffer_A_IN : in std_logic_vector(3 downto 0);
+    Buffer_A_OUT : out std_logic_vector(3 downto 0);
+    CE_Buffer_A : in std_logic;
+    
+    Buffer_B_IN : in std_logic_vector(3 downto 0);
+    Buffer_B_OUT : out std_logic_vector(3 downto 0);
+    CE_Buffer_B : in std_logic
+	;
+    
+    Buffer_SEL_FCT_IN : in STD_LOGIC_VECTOR (3 downto 0);
+    Buffer_SEL_FCT_OUT : out STD_LOGIC_VECTOR (3 downto 0);
+    
+    Buffer_SEL_OUT_IN : in STD_LOGIC_VECTOR (1 downto 0);
+    Buffer_SEL_OUT_OUT : out STD_LOGIC_VECTOR (1 downto 0)
 end BuffersUAL;
 
 architecture Buffers_DataFlow of BuffersUAL is
