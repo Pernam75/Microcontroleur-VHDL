@@ -64,7 +64,7 @@ begin
             report "Buffer A OUT : " & std_logic'image(Buffer_A_OUT_sim(3)) & std_logic'image(Buffer_A_OUT_sim(2)) & std_logic'image(Buffer_A_OUT_sim(1)) & std_logic'image(Buffer_A_OUT_sim(0));
             report "Buffer B OUT : " & std_logic'image(Buffer_B_OUT_sim(3))&std_logic'image(Buffer_B_OUT_sim(2))&std_logic'image(Buffer_B_OUT_sim(1))&std_logic'image(Buffer_B_OUT_sim(0));
             report "Buffer Memory 1 : " & std_logic'image(Buffer_Memory1_OUT_sim(7)) & std_logic'image(Buffer_Memory1_OUT_sim(6)) & std_logic'image(Buffer_Memory1_OUT_sim(5)) & std_logic'image(Buffer_Memory1_OUT_sim(4)) & std_logic'image(Buffer_Memory1_OUT_sim(3)) & std_logic'image(Buffer_Memory1_OUT_sim(2)) & std_logic'image(Buffer_Memory1_OUT_sim(1)) & std_logic'image(Buffer_Memory1_OUT_sim(0));
-                        report "Buffer Memory 2 : " & std_logic'image(Buffer_Memory2_OUT_sim(7)) & std_logic'image(Buffer_Memory2_OUT_sim(6)) & std_logic'image(Buffer_Memory2_OUT_sim(5)) & std_logic'image(Buffer_Memory2_OUT_sim(4)) & std_logic'image(Buffer_Memory2_OUT_sim(3)) & std_logic'image(Buffer_Memory2_OUT_sim(2)) & std_logic'image(Buffer_Memory2_OUT_sim(1)) & std_logic'image(Buffer_Memory2_OUT_sim(0));
+            report "Buffer Memory 2 : " & std_logic'image(Buffer_Memory2_OUT_sim(7)) & std_logic'image(Buffer_Memory2_OUT_sim(6)) & std_logic'image(Buffer_Memory2_OUT_sim(5)) & std_logic'image(Buffer_Memory2_OUT_sim(4)) & std_logic'image(Buffer_Memory2_OUT_sim(3)) & std_logic'image(Buffer_Memory2_OUT_sim(2)) & std_logic'image(Buffer_Memory2_OUT_sim(1)) & std_logic'image(Buffer_Memory2_OUT_sim(0));
         end loop;
         report "Test ok (no assert...)";
         wait;
