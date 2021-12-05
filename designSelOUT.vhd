@@ -22,6 +22,8 @@ begin
                 RES_OUT <= MEM_CACHE_2;
             when "11" =>
                 RES_OUT <= S;
+            when others =>
+            	report "c'est cassé";
         end case;
     end process;
 end SelOUTUAL_DataFlow;
