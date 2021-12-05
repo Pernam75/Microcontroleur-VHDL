@@ -4,8 +4,9 @@ use IEEE.std_logic_1164.all;
 
 entity UAL_SELOUT is
     Port ( 
-        S, MEM_CACHE_1, MEM_CACHE_2, RES_OUT : in STD_LOGIC_VECTOR (7 downto 0);
+        S, MEM_CACHE_1, MEM_CACHE_2 : in STD_LOGIC_VECTOR (7 downto 0);
         SEL_OUT : in STD_LOGIC_VECTOR (1 downto 0);
+        RES_OUT : out STD_LOGIC_VECTOR (7 downto 0)
     );
 end UAL_SELOUT;
 
