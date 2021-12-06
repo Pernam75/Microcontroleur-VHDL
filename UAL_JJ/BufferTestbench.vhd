@@ -45,7 +45,7 @@ architecture myBuffersUALtestbench_Arch of MyBuffersUALtestbench is
             Buffer_SEL_OUT_IN : in STD_LOGIC_VECTOR (1 downto 0);
             Buffer_SEL_OUT_OUT : out STD_LOGIC_VECTOR (1 downto 0)
         );
-        end component;
+    end component;
 
         constant PERIOD : time := 100 us;
 

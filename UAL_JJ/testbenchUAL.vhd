@@ -47,8 +47,6 @@ begin
             B_sim <= "0010";
             SR_IN_L_sim <= '0';
             SR_IN_R_sim <= '0';
-            SR_OUT_L_sim <= '0';
-            SR_OUT_R_sim <= '0';
         	sel_FCT_sim <= std_logic_vector(to_unsigned(i,4));
             wait for 100 us;
             report std_logic'image(sel_FCT_sim(3)) & std_logic'image(sel_FCT_sim(2)) & std_logic'image(sel_FCT_sim(1)) & std_logic'image(sel_FCT_sim(0));
