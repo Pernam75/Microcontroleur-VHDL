@@ -39,7 +39,11 @@ begin
         S => My_S_sim,
         SEL_FCT => My_SEL_FCT_sim
      );
+        
+        
      MyStimulus_Proc : process
+         
+         
      begin
         for i in 0 to 15 loop
             My_A_sim <= "0001";
