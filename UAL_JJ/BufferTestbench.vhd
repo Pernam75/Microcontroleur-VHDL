@@ -90,7 +90,7 @@ begin
             Buffer_SEL_OUT_IN => Buffer_SEL_OUT_IN_sim,
             Buffer_SEL_OUT_OUT => Buffer_SEL_OUT_OUT_sim
         );
-    My_clock_Proc : process -- pas de liste de sensibilité
+    My_clock_Proc : process
     begin 
         clock_sim <= '0';
         wait for PERIOD/2;
