@@ -73,7 +73,7 @@ begin
             report "Buffer Memory 2 : " & std_logic'image(Mem_2_in_sim(7)) & std_logic'image(Mem_2_in_sim(6)) & std_logic'image(Mem_2_in_sim(5)) & std_logic'image(Mem_2_in_sim(4)) & std_logic'image(Mem_2_in_sim(3)) & std_logic'image(Mem_2_in_sim(2)) & std_logic'image(Mem_2_in_sim(1)) & std_logic'image(Mem_2_in_sim(0));
             
         end loop;
-        report "Test ok (no assert...)";
+        report "Pas de Problème";
         wait;
     end process;
 
