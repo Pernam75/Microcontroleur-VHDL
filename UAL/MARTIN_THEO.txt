@@ -1,0 +1,42 @@
+Entité : TP_Coeur (Design)
+
+On décrit, à l'aide d'un CASE, toutes les focntions réalisées par le Coeur du processeur. Il y en a 16. 
+Ces fonctions étaient données dans le cahier des charges.
+
+
+Entité : CoeurTB (TestBench)
+
+On teste notre descritpion du coeur. Pour cela, on entre des valeurs arbitraires de A, B, My_SR_IN_L_sim, My_SR_IN_R_sim et on regarde les sorties affichées.
+On les compare à celles théoriques pour vérifier si le design est bon.
+_______________________________________________________________________________________________________
+Entité : UAL_SELROUTE (Design)
+
+Ici, on décrit de nouveau tous les affectations qu'effectue SELROUTE en fonction des entrées. On utilise encore un CASE.
+Ces affectations étaient elles aussi dans le cahier des charges. 
+
+
+Entité : SELROUTEtestbench (TestBench)
+
+On affecte des valeurs à A, B, Mem_1_out_sim, Mem_2_out_sim. On va donc analyser les sorties qui sont affichées.
+On va les comparer ici aussi aux valeurs théoriques pour vérifier le bon fonctionnement de notre design.
+_______________________________________________________________________________________________________
+Entité : UAL_SELOUT (Design)
+
+Dans cette entité, on va à nouveau décrire la sortie que prend SELOUT en fonction de ses entrées à l'aide d'un CASE.
+Tout le routage correspond au cahier des charges. 
+
+
+Entité : my_UAL_SELOUT_testbench
+
+On affecte des valeurs arbitraires aux entrées avant de simuler notre design. On obtient alors les valeurs générées par le code.
+On les compare avec les valeurs théoriques calculées de notre côté afin de s'assurer que notre design est opérationnel.
+_______________________________________________________________________________________________________
+Entité : Buffers (Design)
+
+On design tous les buffers requis dans différents process. 
+
+
+Entité : myBuffersUALtestbench (TestBench)
+
+On programme tous les process correspondants aux buffers évoqués précédemment. 
+On vérifie qu'ils effectuent leur fonction de buffer comme il se doit. 
