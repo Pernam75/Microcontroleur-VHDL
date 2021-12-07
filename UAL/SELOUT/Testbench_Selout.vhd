@@ -42,7 +42,7 @@ begin
             report std_logic'image(SEL_OUT_sim(1)) & std_logic'image(SEL_OUT_sim(0));
             report "RES OUT : " & std_logic'image(RES_OUT_sim(7)) & std_logic'image(RES_OUT_sim(6)) & std_logic'image(RES_OUT_sim(5)) & std_logic'image(RES_OUT_sim(4)) & std_logic'image(REs_OUT_sim(3)) & std_logic'image(RES_OUT_sim(2)) & std_logic'image(RES_OUT_sim(1)) & std_logic'image(RES_OUT_sim(0));
         end loop;
-        report "Test ok (no assert...)";
+        report "Pas de problème";
         wait;
     end process;
 end my_UAL_SELOUT_testbench_arch;
