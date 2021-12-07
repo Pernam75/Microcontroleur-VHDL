@@ -39,4 +39,9 @@ On design tous les buffers requis dans différents process.
 Entité : myBuffersUALtestbench (TestBench)
 
 On programme tous les process correspondants aux buffers évoqués précédemment. 
-On vérifie qu'ils effectuent leur fonction de buffer comme il se doit. 
+On vérifie qu'ils effectuent leur fonction de buffer comme il se doit.
+_______________________________________________________________________________________________________
+Entité : MEM_instruction
+
+Cette entité de mémoire permet de stocker les instructions qui vont être réalisées à la suite.
+Elle est pointé à chaque front montant de l'horloge.
