@@ -18,7 +18,7 @@ port (
 );
 end UAL;
 
-architecture UAL_DataFlow of UAL is 
+architecture UAL_Arch of UAL is 
 	
     signal My_A : std_logic_vector (3 downto 0);
     signal My_B : std_logic_vector (3 downto 0);
@@ -148,4 +148,4 @@ begin
     SR_OUT_L <= My_SR_OUT_L;
     SR_OUT_R <= My_SR_OUT_R;
     
-end UAL_DataFlow;
+end UAL_Arch;

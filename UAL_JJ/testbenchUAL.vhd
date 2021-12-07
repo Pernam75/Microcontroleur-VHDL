@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_signed.all;
 entity myUALtestbench is 
 
 end myUALtestbench;
@@ -40,17 +41,29 @@ begin
     );
     
     
-    MyStimulus_Proc2 : process
+    MyStimulusUALproc : process
     begin
         for i in 0 to 15 loop
-     		A_sim <= "0001";
-            B_sim <= "0010";
+     		A_sim <= std_logic_vector(to_unsigned(5, A_sim'length));
+            B_sim <= std_logic_vector(to_unsigned(14, B_sim'length));
             SR_IN_L_sim <= '0';
             SR_IN_R_sim <= '0';
         	sel_FCT_sim <= std_logic_vector(to_unsigned(i,4));
             wait for 100 us;
-            report std_logic'image(sel_FCT_sim(3)) & std_logic'image(sel_FCT_sim(2)) & std_logic'image(sel_FCT_sim(1)) & std_logic'image(sel_FCT_sim(0));
-            report "sortie : " & std_logic'image(S_sim(7)) & std_logic'image(S_sim(6)) & std_logic'image(S_sim(5)) & std_logic'image(S_sim(4)) & std_logic'image(S_sim(3)) & std_logic'image(S_sim(2)) & std_logic'image(S_sim(1)) & std_logic'image(S_sim(0));
+            report "Sel Function = " & std_logic'image(sel_FCT_sim(3)) & std_logic'image(sel_FCT_sim(2)) & std_logic'image(sel_FCT_sim(1)) & std_logic'image(sel_FCT_sim(0));
+            case(sel_FCT_sim) is
+            when "1100" =>
+            	report integer'image(to_integer(unsigned(A_sim))) & " + "&integer'image(to_integer(unsigned(B_sim))) & " = " & integer'image(to_integer(unsigned(S_sim)));
+            when "1101" =>
+            	report integer'image(to_integer(unsigned(A_sim))) & " + "&integer'image(to_integer(unsigned(B_sim))) & " = " & integer'image(to_integer(unsigned(S_sim)));
+            when "1110" =>
+            	report integer'image(to_integer(unsigned(A_sim))) & " - "&integer'image(to_integer(unsigned(B_sim))) & " = " & integer'image(to_integer(signed(S_sim)));
+                report "sortie : " & std_logic'image(S_sim(7)) & std_logic'image(S_sim(6)) & std_logic'image(S_sim(5)) & std_logic'image(S_sim(4)) & std_logic'image(S_sim(3)) & std_logic'image(S_sim(2)) & std_logic'image(S_sim(1)) & std_logic'image(S_sim(0));
+            when "1111" =>
+            	report integer'image(to_integer(unsigned(A_sim))) & " * "&integer'image(to_integer(unsigned(B_sim))) & " = " & integer'image(to_integer(unsigned(S_sim)));
+            when others =>
+				report "sortie : " & std_logic'image(S_sim(7)) & std_logic'image(S_sim(6)) & std_logic'image(S_sim(5)) & std_logic'image(S_sim(4)) & std_logic'image(S_sim(3)) & std_logic'image(S_sim(2)) & std_logic'image(S_sim(1)) & std_logic'image(S_sim(0));
+			end case;
         end loop;
         report "Test ok (no assert...)";
         wait;
