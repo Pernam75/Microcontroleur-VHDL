@@ -41,6 +41,17 @@ begin
             wait for 100 us;
             report std_logic'image(SEL_OUT_sim(1)) & std_logic'image(SEL_OUT_sim(0));
             report "RES OUT : " & std_logic'image(RES_OUT_sim(7)) & std_logic'image(RES_OUT_sim(6)) & std_logic'image(RES_OUT_sim(5)) & std_logic'image(RES_OUT_sim(4)) & std_logic'image(REs_OUT_sim(3)) & std_logic'image(RES_OUT_sim(2)) & std_logic'image(RES_OUT_sim(1)) & std_logic'image(RES_OUT_sim(0));
+            case( SEL_OUT_sim ) is
+                when "00" =>
+                    assert RES_OUT_sim = "00000000";
+                when "01" =>
+                    assert RES_OUT_sim = MEM_CACHE_1_sim;
+                when "01" =>
+                    assert RES_OUT_sim = MEM_CACHE_2_sim;
+                when "01" =>
+                    assert RES_OUT_sim = S_sim;
+                when others =>
+            end case ;
         end loop;
         report "Test ok (no assert...)";
         wait;

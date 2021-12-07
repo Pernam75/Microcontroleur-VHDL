@@ -136,7 +136,7 @@ begin
                 CE_Buffer_Memory1 <= '0';
                 CE_Buffer_Memory2 <= '0';
                 Buffer_A_OUT <= (others => '0');
-                Buffer_B_OUT <= Buffer_Memory1_IN(7 downto 4);
+                Buffer_B_OUT <= Buffer_Memory2_IN(7 downto 4);
                 Buffer_Memory1_OUT <= (others => '0');
                 Buffer_Memory2_OUT <= (others => '0');
             
