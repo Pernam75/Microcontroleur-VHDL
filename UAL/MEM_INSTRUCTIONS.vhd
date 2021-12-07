@@ -1,4 +1,3 @@
-```vhdl
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
@@ -57,4 +56,3 @@ begin
       MEM_instBuff(10) <= "0000000001"; --| no op             | A -> Buf A    | Mem1  |
       end process;
      end architecture;
-```
