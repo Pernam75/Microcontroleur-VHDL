@@ -5,7 +5,7 @@ use IEEE.std_logic_unsigned.all;
 Entity Buffers is
 
 port (
-	clk : in std_logic;
+    clk : in std_logic;
     reset : in std_logic;
     preset : in std_logic;
     
