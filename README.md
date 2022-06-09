@@ -1,7 +1,5 @@
 # Microcontroleur-VHDL
 
+Projet du module Conception de Circuit numérique EFREI Semestre 5
 
-
-VHDL projet.
-
-Ce repos nous sert à partager notre code
+Il s'agit d'un Microcontroleur implémenté en VHDL.
